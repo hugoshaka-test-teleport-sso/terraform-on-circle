@@ -5,10 +5,11 @@ workflows:
   deploy_infrastructure:
     jobs:
       - terraform/init:
+          tags: 1.9.5
           checkout: true
           context: teleport-access
       - terraform/plan:
-          checkout: true
+          tags: 1.9.5
           context: teleport-access
           requires:
             - terraform/init
